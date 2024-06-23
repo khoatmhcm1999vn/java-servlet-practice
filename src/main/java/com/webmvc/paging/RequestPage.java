@@ -5,7 +5,9 @@ import com.webmvc.sorting.Sorter;
 public class RequestPage implements Pageable {
 	
 	private Integer page;
+
 	private Integer maxPageItem;
+
 	private Sorter sorter;
 	
 	public RequestPage(Integer page, Integer maxPageItem, Sorter sorter) {

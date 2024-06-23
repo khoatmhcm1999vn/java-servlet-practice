@@ -10,6 +10,7 @@ public class UserMapper implements IRowMapper<UserModel> {
 
 	@Override
 	public UserModel mapRow(ResultSet resultSet) {
+
 		try {
 			UserModel user = new UserModel();
 			user.setId(resultSet.getLong("id"));
@@ -17,6 +18,7 @@ public class UserMapper implements IRowMapper<UserModel> {
 			user.setFullName(resultSet.getString("fullname"));
 			user.setPassword(resultSet.getString("password"));
 			user.setStatus(resultSet.getInt("status"));
+
 			try {
 				RoleModel role = new RoleModel();
 				role.setCode(resultSet.getString("code"));
@@ -28,6 +30,7 @@ public class UserMapper implements IRowMapper<UserModel> {
 			return user;
 		} catch (SQLException e) {
 			return null;
-		}	
+		}
 	}
+
 }

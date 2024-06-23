@@ -32,15 +32,15 @@ public class NewsController extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public NewsController() {
-        super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		NewsModel model = FormUtils.toModel(NewsModel.class, request);		
+		NewsModel model = FormUtils.toModel(NewsModel.class, request);
 		
 		//mapping query param to an object
 		Pageable pageable = new RequestPage(model.getPage(), model.getMaxPageItem(), new Sorter(model.getSortName(), model.getSortBy()));
@@ -63,9 +63,9 @@ public class NewsController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		this.doGet(request, response);
 	}
 
 }

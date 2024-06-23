@@ -11,10 +11,11 @@ import java.util.List;
 public class CategoryDAO extends AbstractDAO<CategoryModel> implements ICategoryDAO {
 	
 	@Override
-	public List<CategoryModel> findAll() {		
-		String sql = "Select * from category";
+	public List<CategoryModel> findAll() {
+		String sql = "select * from category";
 		CategoryMapper categoryMapper = new CategoryMapper();
 		List<CategoryModel> categoryList = this.query(sql, categoryMapper);
 		return categoryList;
 	}
+
 }

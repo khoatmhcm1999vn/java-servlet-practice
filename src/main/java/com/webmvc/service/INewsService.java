@@ -22,4 +22,5 @@ public interface INewsService {
 	void delete(Long[] ids);
 	
 	int getTotalItem();
+
 }

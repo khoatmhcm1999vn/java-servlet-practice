@@ -1,25 +1,30 @@
 package com.webmvc.sorting;
 
 public class Sorter {
+
 	private String sortName;
+
 	private String sortBy;
 	
 	public String getSortName() {
-		return sortName;
+		return this.sortName;
 	}
+
 	public void setSortName(String sortName) {
 		this.sortName = sortName;
 	}
+
 	public String getSortBy() {
-		return sortBy;
+		return this.sortBy;
 	}
+
 	public void setSortBy(String sortBy) {
 		this.sortBy = sortBy;
 	}
 	
 	public Sorter(String sortName, String sortBy) {
-		super();
 		this.sortName = sortName;
 		this.sortBy = sortBy;
-	}	
+	}
+
 }

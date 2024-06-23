@@ -26,10 +26,10 @@ public class AuthorizationFilter implements Filter {
         if (url.startsWith("/admin")) {
             UserModel model = (UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL");
             if (model != null) {
-                if (model.getRole().getCode().equals(SystemConstant.ADMIN)) {
+                if (model.getRole().getCode().equalsIgnoreCase(SystemConstant.ADMIN)) {
                     filterChain.doFilter(servletRequest, servletResponse);
-                } else if (model.getRole().getCode().equals(SystemConstant.USER)) {
-                    response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login&message=not_permission&alert=danger");
+                } else if (model.getRole().getCode().equalsIgnoreCase(SystemConstant.USER)) {
+                    response.sendRedirect(request.getContextPath() + "/dang-nhap?action=login&message=not_permission&alert=danger");
                 }
             } else {
                 response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login&message=not_login&alert=danger");
@@ -43,4 +43,5 @@ public class AuthorizationFilter implements Filter {
     public void destroy() {
 
     }
+
 }

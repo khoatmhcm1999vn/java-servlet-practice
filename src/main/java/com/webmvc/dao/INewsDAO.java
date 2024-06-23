@@ -22,4 +22,5 @@ public interface INewsDAO {
 	void delete(Long id);
 	
 	int getTotalItem();
+
 }

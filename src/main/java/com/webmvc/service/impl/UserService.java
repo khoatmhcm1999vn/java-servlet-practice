@@ -15,12 +15,12 @@ public class UserService implements IUserService {
 	private IUserDAO userDAO;
 
 	public UserService() {
-		userDAO = new UserDAO();
+		this.userDAO = new UserDAO();
 	}
 	
 	@Override
 	public UserModel findByUserNameAndPasswordAndStatus(String userName, String password, Integer status) {
-		return userDAO.findByUserNameAndPasswordAndStatus(userName, password, status);
+		return this.userDAO.findByUserNameAndPasswordAndStatus(userName, password, status);
 	}
 	
 }

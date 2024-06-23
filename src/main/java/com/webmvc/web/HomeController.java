@@ -16,11 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-
 /**
  * Servlet implementation class HomeController
  */
-@WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/thoat"})
+@WebServlet(urlPatterns = {"/trang-chu", "/dang-nhap", "/thoat"})
 public class HomeController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -37,16 +36,16 @@ public class HomeController extends HttpServlet {
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 	
     public HomeController() {
-        super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-		if (action != null && action.equals("login")) {
+		if (action != null && action.equalsIgnoreCase("login")) {
 			String alert = request.getParameter("alert");
 			String message = request.getParameter("message");
 			if (message != null && alert != null) {
@@ -55,9 +54,9 @@ public class HomeController extends HttpServlet {
 			}
 			RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 			rd.forward(request, response);
-		} else if (action != null && action.equals("logout")) {
+		} else if (action != null && action.equalsIgnoreCase("logout")) {
 			SessionUtil.getInstance().removeValue(request, "USERMODEL");
-			response.sendRedirect(request.getContextPath()+"/trang-chu");
+			response.sendRedirect(request.getContextPath() + "/trang-chu");
 		} else {
 			request.setAttribute("categories", categoryService.findAll());
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
@@ -68,21 +67,25 @@ public class HomeController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-		if (action != null && action.equals("login")) {
+		if (action != null && action.equalsIgnoreCase("login")) {
 			UserModel model = FormUtils.toModel(UserModel.class, request);
-			model = userService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
-			if (model != null) {
+            if (model != null) {
+                model = userService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
+            }
+            if (model != null) {
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
-				if (model.getRole().getCode().equals("USER")) {
-					response.sendRedirect(request.getContextPath()+"/trang-chu");
-				} else if (model.getRole().getCode().equals("ADMIN")) {
-					response.sendRedirect(request.getContextPath()+"/admin-home");
+				if (model.getRole().getCode().equalsIgnoreCase("USER")) {
+					response.sendRedirect(request.getContextPath() + "/trang-chu");
+				} else if (model.getRole().getCode().equalsIgnoreCase("ADMIN")) {
+					response.sendRedirect(request.getContextPath() + "/admin-home");
 				}
 			} else {
-				response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login&message=username_password_invalid&alert=danger");
+				response.sendRedirect(request.getContextPath() + "/dang-nhap?action=login&message=username_password_invalid&alert=danger");
 			}
 		}
 	}
+
 }

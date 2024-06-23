@@ -18,6 +18,7 @@ import java.io.IOException;
  */
 @WebServlet("/api-admin-news")
 public class NewsAPI extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
        
 	@Inject
@@ -27,13 +28,13 @@ public class NewsAPI extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public NewsAPI() {
-        super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
@@ -41,12 +42,13 @@ public class NewsAPI extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		NewsModel requestNews =  HttpUtils.of(request.getReader()).toModel(NewsModel.class);
-		NewsModel news = this.newsService.save(requestNews);		
+		NewsModel requestNews = HttpUtils.of(request.getReader()).toModel(NewsModel.class);
+		NewsModel news = this.newsService.save(requestNews);
 		objectMapper.writeValue(response.getOutputStream(), news);
 	}
 
@@ -55,9 +57,8 @@ public class NewsAPI extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		
 		NewsModel requestNews =  HttpUtils.of(request.getReader()).toModel(NewsModel.class);
-		NewsModel news = this.newsService.edit(requestNews);	
+		NewsModel news = this.newsService.edit(requestNews);
 		objectMapper.writeValue(response.getOutputStream(), news);
 	}
 
@@ -66,9 +67,9 @@ public class NewsAPI extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		
 		NewsModel news = HttpUtils.of(request.getReader()).toModel(NewsModel.class);
 		this.newsService.delete(news.getIds());
 		objectMapper.writeValue(response.getOutputStream(), "{}");
 	}
+
 }
