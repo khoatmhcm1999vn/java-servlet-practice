@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+<div id="sidebar" class="sidebar responsive ace-save-state">
     <script type="text/javascript">
-        try{ace.settings.loadState('sidebar')}catch(e){}
+        try {ace.settings.loadState('sidebar')} catch(e) {}
     </script>
     <div class="sidebar-shortcuts">
         <div class="sidebar-shortcuts-large">
@@ -34,7 +34,7 @@
         </div>
     </div>
     <ul class="nav nav-list">
-        <li >
+        <li>
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
                 <span class="menu-text"></span>
@@ -44,7 +44,7 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                	<a href='<c:url value = "/admin-news?page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
+                	<a href='<c:url value="/admin-news?page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>
                     <!-- <a href='<c:url value="/admin-new?type=list&page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'> -->
                         <i class="menu-icon fa fa-caret-right"></i>
                         DS bài viết

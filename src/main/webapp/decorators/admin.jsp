@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
-    
 </head>
 <body class="no-skin">
 	<!-- header -->
@@ -25,7 +24,7 @@
 	
 	<div class="main-container" id="main-container">
 		<script type="text/javascript">
-				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+				try {ace.settings.check('main-container', 'fixed')} catch(e) {}
 		</script>
 		<!-- header -->
     	<%@ include file="/common/admin/menu.jsp" %>
@@ -41,8 +40,7 @@
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 		</a>
 	</div>
-	
-	
+
 	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>

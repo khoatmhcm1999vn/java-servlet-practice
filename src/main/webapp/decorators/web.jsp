@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><dec:title default = "Trang Chu" /> </title>
+  <title><dec:title default = "Trang Chủ" /> </title>
 
   <!-- Bootstrap core CSS -->
   <link href="<c:url value = "template/web/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
