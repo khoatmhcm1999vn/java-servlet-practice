@@ -72,10 +72,10 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 		StringBuilder sql = new StringBuilder("select * from news");
 		
 		if (pageable.getSorter().getSortBy() != null || pageable.getSorter().getSortName() != null) {
-			sql.append(" order by " + pageable.getSorter().getSortName() + " " + pageable.getSorter().getSortBy());
+			sql.append(" order by ").append(pageable.getSorter().getSortName()).append(" ").append(pageable.getSorter().getSortBy());
 		}
 		if (pageable.getOffset() != null || pageable.getLimit() != null) {
-			sql.append(" limit " + pageable.getOffset() + ", " + pageable.getLimit());
+			sql.append(" limit ").append(pageable.getOffset()).append(", ").append(pageable.getLimit());
 		}
 		
 		NewsMapper newsMapper = new NewsMapper();

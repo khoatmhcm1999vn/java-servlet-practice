@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Insert title here</title>
+<title>Danh sách bài viết</title>
 </head>
 <body>
 <div class="main-content">
@@ -38,30 +38,29 @@
 	</form>
 </div>
 
+<script type="text/javascript">
+    var currentPage = ${model.page}
+    var totalPage = ${model.totalPage}
+    var limit = 2;
 
-	<script type="text/javascript">
-		var currentPage = ${model.page}
-		var totalPage = ${model.totalPage}
-		var limit = 2;
-
-		$(function() {
-			window.pagObj = $('#pagination').twbsPagination({
-				totalPages : totalPage,
-				visiblePages : 10,
-				startPage : currentPage,
-				onPageClick : function(event, page) {
-					if (currentPage != page) {
-						$('#maxPageItem').val(limit);
-						$('#page').val(page);
-						$('#sortName').val("title");
-						$('#sortBy').val("desc");
-						$('#formSubmit').submit();
-					}
-				}
-			}).on('page', function(event, page) {
-				console.info(page + ' (from event listening)');
-			});
-		});
-	</script>
+    $(function() {
+        window.pagObj = $('#pagination').twbsPagination({
+            totalPages : totalPage,
+            visiblePages : 10,
+            startPage : currentPage,
+            onPageClick : function(event, page) {
+                if (currentPage != page) {
+                    $('#maxPageItem').val(limit);
+                    $('#page').val(page);
+                    $('#sortName').val("title");
+                    $('#sortBy').val("desc");
+                    $('#formSubmit').submit();
+                }
+            }
+        }).on('page', function(event, page) {
+            console.info(page + ' (from event listening)');
+        });
+    });
+</script>
 </body>
 </html>

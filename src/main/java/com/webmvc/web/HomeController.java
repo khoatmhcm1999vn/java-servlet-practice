@@ -33,7 +33,7 @@ public class HomeController extends HttpServlet {
 	@Inject
 	private ICategoryService categoryService;
 	
-	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
+	private final ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 	
     public HomeController() {
 

@@ -7,8 +7,12 @@ import java.lang.reflect.InvocationTargetException;
 
 public class FormUtils {
 
+	private FormUtils() {
+
+	}
+
 	public static <T> T toModel(Class<T> tClass, HttpServletRequest request) {
-		T object = null;
+		T object;
 
 		try {
 			object = tClass.newInstance();

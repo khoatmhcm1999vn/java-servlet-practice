@@ -15,7 +15,7 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 		StringBuilder sql = new StringBuilder("select * from user as u");
 		sql.append(" inner join role as r on r.id = u.roleid");
 		sql.append(" where username = ? and password = ? and status = ?");
-		List<UserModel> users = query(sql.toString(), new UserMapper(), userName, password, status);
+		List<UserModel> users = this.query(sql.toString(), new UserMapper(), userName, password, status);
 		return users.isEmpty() ? null : users.get(0);
 	}
 

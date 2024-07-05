@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 public class AbstractDAO<T> implements IGenericDAO<T> {
 	
-	private ResourceBundle resource = ResourceBundle.getBundle("db");
+	private final ResourceBundle resource = ResourceBundle.getBundle("db");
 
 	@Override
 	public Connection getConnection() {

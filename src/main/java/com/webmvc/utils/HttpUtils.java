@@ -22,11 +22,11 @@ public class HttpUtils {
 		return null;
 	}
 	
-	public static HttpUtils of (BufferedReader reader) {
+	public static HttpUtils of(BufferedReader reader) {
 		StringBuilder sb = new StringBuilder();
 		String line;
 		try {
-			while((line = reader.readLine()) != null) {
+			while ((line = reader.readLine()) != null) {
 				sb.append(line);
 			}
 		} catch (IOException e) {

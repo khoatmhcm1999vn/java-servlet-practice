@@ -11,7 +11,7 @@
     <div class="main-content-inner">
         <div class="breadcrumbs" id="breadcrumbs">
             <script type="text/javascript">
-                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                try { ace.settings.check('breadcrumbs', 'fixed') } catch(e) {}
             </script>
             <ul class="breadcrumb">
                 <li>
@@ -25,9 +25,9 @@
             <div class="row">
                 <div class="col-xs-12">
                         <c:if test="${not empty messageResponse}">
-									<div class="alert alert-${alert}">
-  										${messageResponse}
-									</div>
+                            <div class="alert alert-${alert}">
+                                ${messageResponse}
+                            </div>
 						</c:if>
                         <form id="formSubmit">
                             <div class="form-group">
@@ -102,18 +102,19 @@
         </div>
     </div>
 </div>
+
 <script>
 	var editor = '';
-	$(document).ready(function(){
-		editor = CKEDITOR.replace( 'content');
+	$(document).ready(function() {
+		editor = CKEDITOR.replace('content');
 	});
 	
-    $('#btnAddOrUpdateNew').click(function (e) {
+    $('#btnAddOrUpdateNew').click(function(e) {
         e.preventDefault();
         var data = {};
         var formData = $('#formSubmit').serializeArray();
-        $.each(formData, function (i, v) {
-            data[""+v.name+""] = v.value;
+        $.each(formData, function(i, v) {
+            data["" + v.name + ""] = v.value;
         });
         data["content"] = editor.getData();
         var id = $('#id').val();
@@ -123,6 +124,7 @@
             updateNew(data);
         }
     });
+
     function addNew(data) {
         $.ajax({
             url: '${APIurl}',
@@ -130,14 +132,15 @@
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
-            success: function (result) {
-            	window.location.href = "${NewURL}?type=edit&id="+result.id+"&message=insert_success";
+            success: function(result) {
+            	window.location.href = "${NewURL}?type=edit&id=" + result.id + "&message=insert_success";
             },
-            error: function (error) {
+            error: function(error) {
             	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
             }
         });
     }
+
     function updateNew(data) {
         $.ajax({
             url: '${APIurl}',
@@ -145,10 +148,10 @@
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
-            success: function (result) {
-            	window.location.href = "${NewURL}?type=edit&id="+result.id+"&message=update_success";
+            success: function(result) {
+            	window.location.href = "${NewURL}?type=edit&id=" + result.id + "&message=update_success";
             },
-            error: function (error) {
+            error: function(error) {
             	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
             }
         });
