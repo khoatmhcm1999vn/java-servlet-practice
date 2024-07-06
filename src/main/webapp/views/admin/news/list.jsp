@@ -9,32 +9,46 @@
 </head>
 <body>
 <div class="main-content">
-	<form action="<c:url value='/admin-news'/>" id="formSubmit" method="get">
-		<div class="table-responsive">
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th><input type="checkbox" id="checkAll"></th>
-						<th>Tên bài viết</th>
-						<th>Mô tả ngắn</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="item" items="${model.listResult}">
-						<tr>
-							<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
-							<td>${item.title}</td>
-							<td>${item.shortDescription}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			<ul class="pagination" id="pagination"></ul>
-			<input type="hidden" value="" id="page" name="page"/>
-			<input type="hidden" value="" id="maxPageItem" name="maxPageItem"/>
-			<input type="hidden" value="" id="sortName" name="sortName"/>
-			<input type="hidden" value="" id="sortBy" name="sortBy"/>
-		</div>
+    <form action="<c:url value='/admin-news'/>" id="formSubmit" method="get">
+        <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="checkAll"></th>
+                            <th>Tên bài viết</th>
+                            <th>Mô tả ngắn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="item" items="${model.listResult}">
+                            <tr>
+                                <td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
+                                <td>${item.title}</td>
+                                <td>${item.shortDescription}</td>
+                                <!--
+                                <form action="<c:url value='/admin-news'/>" id="formLogin" method="post">
+                                    <td style="padding: 40px 0px;">
+                                        <input type="hidden" name="id" value="${item.id}">
+                                        <input class="btn btn-success btn-block" type="submit" value="Cập nhật">
+                                    </td>
+                                </form>
+                                -->
+                                <td style="padding: 40px 0px;">
+                                    <input type="hidden" name="id" value="${item.id}">
+                                    <a href="admin-news?action=addToCart">
+                                        Cập nhật
+                                    </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+                <ul class="pagination" id="pagination"></ul>
+                <input type="hidden" value="" id="page" name="page"/>
+                <input type="hidden" value="" id="maxPageItem" name="maxPageItem"/>
+                <input type="hidden" value="" id="sortName" name="sortName"/>
+                <input type="hidden" value="" id="sortBy" name="sortBy"/>
+            </div>
 	</form>
 </div>
 

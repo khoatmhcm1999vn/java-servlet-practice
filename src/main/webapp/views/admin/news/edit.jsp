@@ -16,7 +16,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="#">Trang chủ</a>
+                    <a href='<c:url value="/admin-news?page=1&maxPageItem=2&sortName=title&sortBy=desc"/>'>Danh sách bài viết</a>
                 </li>
                 <li class="active">Chỉnh sửa bài viết</li>
             </ul><!-- /.breadcrumb -->
@@ -33,17 +33,17 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label no-padding-right">Thể loại</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="categoryCode" name="categoryCode">
-                                        <c:if test="${empty model.categoryCode}">
+                                    <select class="form-control" id="categoryCode" name="categoryId">
+                                        <c:if test="${empty model.categoryId}">
                                             <option value="">Chọn loại bài viết</option>
-                                            <c:forEach var="item" items="${categories}">
+                                            <c:forEach var="item" items="${model.categories}">
                                                 <option value="${item.code}">${item.name}</option>
                                             </c:forEach>
                                         </c:if>
-                                        <c:if test="${not empty model.categoryCode}">
+                                        <c:if test="${not empty model.categoryId}">
                                             <option value="">Chọn loại bài viết</option>
-                                            <c:forEach var="item" items="${categories}">
-                                                <option value="${item.code}" <c:if test="${item.code == model.categoryCode}">selected="selected"</c:if>>
+                                            <c:forEach var="item" items="${model.categories}">
+                                                <option value="${item.code}" <c:if test="${item.id == model.categoryId}">selected="selected"</c:if>>
                                                         ${item.name}
                                                 </option>
                                             </c:forEach>

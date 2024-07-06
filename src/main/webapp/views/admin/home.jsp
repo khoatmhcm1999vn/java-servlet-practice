@@ -13,7 +13,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href='<c:url value="/trang-chu"/>'>Home News Website</a>
+                    <a href='<c:url value="/admin-home"/>'>Home News Website</a>
                 </li>
             </ul><!-- /.breadcrumb -->
         </div>

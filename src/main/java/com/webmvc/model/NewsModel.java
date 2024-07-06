@@ -1,5 +1,8 @@
 package com.webmvc.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NewsModel extends AbstractModel<NewsModel> {
 
 	private String title;
@@ -11,6 +14,8 @@ public class NewsModel extends AbstractModel<NewsModel> {
 	private String content;
 
 	private Long categoryId;
+
+	private List<CategoryModel> categories = new ArrayList<>();
 	
 	public String getTitle() {
 		return this.title;
@@ -50,6 +55,14 @@ public class NewsModel extends AbstractModel<NewsModel> {
 
 	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
+	}
+
+	public List<CategoryModel> getCategories() {
+		return this.categories;
+	}
+
+	public void setCategories(List<CategoryModel> categories) {
+		this.categories = categories;
 	}
 
 }
