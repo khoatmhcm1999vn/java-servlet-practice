@@ -13,10 +13,10 @@
   <title><dec:title default = "Trang Chủ" /> </title>
 
   <!-- Bootstrap core CSS -->
-  <link href="<c:url value = "template/web/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+  <link href="<c:url value="template/web/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="<c:url value = "template/web/css/blog-home.css"/>" rel="stylesheet">
+  <link href="<c:url value="template/web/css/blog-home.css"/>" rel="stylesheet">
 
 </head>
 
@@ -32,8 +32,8 @@
   <%@include file = "/common/web/footer.jsp" %>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="<c:url value = "template/web/jquery/jquery.min.js"/>"></script>
-  <script src="<c:url value = "template/web/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+  <script src="<c:url value="template/web/jquery/jquery.min.js"/>"></script>
+  <script src="<c:url value="template/web/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
 </body>
 

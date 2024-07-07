@@ -44,13 +44,12 @@ public class NewsController extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		NewsModel model = FormUtils.toModel(NewsModel.class, request);
 		String action = request.getParameter("action");
-		if (action != null && action.equalsIgnoreCase("addToCart")) {
-			RequestDispatcher rd = request.getRequestDispatcher("/views/admin/news/edit.jsp");
-			rd.forward(request, response);
+		if (action != null && action.equalsIgnoreCase("update")) {
+			this.doPost(request, response);
 		}
 		else {
+			NewsModel model = FormUtils.toModel(NewsModel.class, request);
 			//mapping query param to an object
 			Pageable pageable = new RequestPage(model.getPage(), model.getMaxPageItem(), new Sorter(model.getSortName(), model.getSortBy()));
 

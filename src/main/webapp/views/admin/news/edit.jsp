@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="APIurl" value="/api-admin-new"/>
-<c:url var ="NewURL" value="/admin-new"/>
+<c:url var="APIurl" value="/api-admin-news"/>
+<c:url var ="NewURL" value="/admin-news"/>
 <html>
 <head>
     <title>Chỉnh sửa bài viết</title>
 </head>
 <body>
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <div class="main-content">
     <div class="main-content-inner">
         <div class="breadcrumbs" id="breadcrumbs">

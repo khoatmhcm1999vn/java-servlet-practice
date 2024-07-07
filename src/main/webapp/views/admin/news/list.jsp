@@ -34,8 +34,7 @@
                                 </form>
                                 -->
                                 <td style="padding: 40px 0px;">
-                                    <input type="hidden" name="id" value="${item.id}">
-                                    <a href="admin-news?action=addToCart">
+                                    <a href="admin-news?action=update&id=${item.id}">
                                         Cập nhật
                                     </a>
                                 </td>
