@@ -1,7 +1,9 @@
 package com.webmvc.web;
 
+import com.webmvc.model.NewsModel;
 import com.webmvc.model.UserModel;
 import com.webmvc.service.ICategoryService;
+import com.webmvc.service.INewsService;
 import com.webmvc.service.IUserService;
 import com.webmvc.utils.FormUtils;
 import com.webmvc.utils.SessionUtil;
@@ -32,6 +34,9 @@ public class HomeController extends HttpServlet {
 	
 	@Inject
 	private ICategoryService categoryService;
+
+	@Inject
+	private INewsService newsService;
 	
 	private final ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 	
@@ -58,7 +63,8 @@ public class HomeController extends HttpServlet {
 			SessionUtil.getInstance().removeValue(request, "USERMODEL");
 			response.sendRedirect(request.getContextPath() + "/trang-chu");
 		} else {
-			request.setAttribute("categories", categoryService.findAll());
+			NewsModel model = FormUtils.toModel(NewsModel.class, request);
+			request.setAttribute("model", this.newsService.findAll());
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
 		}

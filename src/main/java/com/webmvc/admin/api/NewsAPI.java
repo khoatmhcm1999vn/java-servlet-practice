@@ -57,7 +57,7 @@ public class NewsAPI extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		NewsModel requestNews =  HttpUtils.of(request.getReader()).toModel(NewsModel.class);
+		NewsModel requestNews = HttpUtils.of(request.getReader()).toModel(NewsModel.class);
 		NewsModel news = this.newsService.edit(requestNews);
 		objectMapper.writeValue(response.getOutputStream(), news);
 	}

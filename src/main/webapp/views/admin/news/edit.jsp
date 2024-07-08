@@ -38,13 +38,13 @@
                                         <c:if test="${empty model.categoryId}">
                                             <option value="">Chọn loại bài viết</option>
                                             <c:forEach var="item" items="${model.categories}">
-                                                <option value="${item.code}">${item.name}</option>
+                                                <option value="${item.id}">${item.name}</option>
                                             </c:forEach>
                                         </c:if>
                                         <c:if test="${not empty model.categoryId}">
                                             <option value="">Chọn loại bài viết</option>
                                             <c:forEach var="item" items="${model.categories}">
-                                                <option value="${item.code}" <c:if test="${item.id == model.categoryId}">selected="selected"</c:if>>
+                                                <option value="${item.id}" <c:if test="${item.id == model.categoryId}">selected="selected"</c:if>>
                                                         ${item.name}
                                                 </option>
                                             </c:forEach>
@@ -134,10 +134,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function(result) {
-            	window.location.href = "${NewURL}?type=edit&id=" + result.id + "&message=insert_success";
+            	window.location.href = "${NewURL}?page=1&maxPageItem=2&sortName=title&sortBy=desc";
             },
             error: function(error) {
-            	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
+            	window.location.href = "${NewURL}?page=1&maxPageItem=2&sortName=title&sortBy=desc";
             }
         });
     }
@@ -150,10 +150,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function(result) {
-            	window.location.href = "${NewURL}?type=edit&id=" + result.id + "&message=update_success";
+            	window.location.href = "${NewURL}?page=1&maxPageItem=2&sortName=title&sortBy=desc";
             },
             error: function(error) {
-            	window.location.href = "${NewURL}?type=list&maxPageItem=2&page=1&message=error_system";
+            	window.location.href = "${NewURL}?page=1&maxPageItem=2&sortName=title&sortBy=desc";
             }
         });
     }
