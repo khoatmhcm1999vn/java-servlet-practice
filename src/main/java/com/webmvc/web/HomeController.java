@@ -2,7 +2,6 @@ package com.webmvc.web;
 
 import com.webmvc.model.NewsModel;
 import com.webmvc.model.UserModel;
-import com.webmvc.service.ICategoryService;
 import com.webmvc.service.INewsService;
 import com.webmvc.service.IUserService;
 import com.webmvc.utils.FormUtils;
@@ -31,9 +30,6 @@ public class HomeController extends HttpServlet {
      */
 	@Inject
 	private IUserService userService;
-	
-	@Inject
-	private ICategoryService categoryService;
 
 	@Inject
 	private INewsService newsService;
@@ -79,7 +75,7 @@ public class HomeController extends HttpServlet {
 		if (action != null && action.equalsIgnoreCase("login")) {
 			UserModel model = FormUtils.toModel(UserModel.class, request);
             if (model != null) {
-                model = userService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
+                model = this.userService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
             }
             if (model != null) {
 				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
